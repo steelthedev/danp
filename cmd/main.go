@@ -29,6 +29,11 @@ func main() {
 
 	// Get Handlers
 	app.Get("/", appHandler.HandleGetHome)
+	app.Get("/about", appHandler.HandleGetAbout)
+	app.Get("/plans", appHandler.HandleGetPlan)
+	app.Get("/contact", appHandler.HandleGetContact)
+	app.Get("/login", appHandler.HanldeGetLogin)
+	app.Get("/register", appHandler.HanldeGetRegister)
 
 	app.Listen(":3000")
 }
