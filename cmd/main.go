@@ -5,10 +5,13 @@ import (
 	"os"
 
 	"github.com/gofiber/fiber/v2"
+	"github.com/gofiber/fiber/v2/middleware/session"
+	"github.com/gofiber/storage/postgres/v3"
 	"github.com/gofiber/template/html/v2"
 	"github.com/joho/godotenv"
 	"github.com/steelthedev/danp/db"
 	"github.com/steelthedev/danp/handlers"
+	"github.com/steelthedev/danp/middlewares"
 )
 
 func main() {
@@ -29,9 +32,24 @@ func main() {
 
 	app.Static("/static", "./assets")
 
+	// handle sessions
+	storage := postgres.New(
+		postgres.Config{
+			ConnectionURI: os.Getenv("DB_URL"),
+			Table:         "fiber",
+			Reset:         false,
+		},
+	)
+	store := session.New(session.Config{
+		Storage: storage,
+	})
+
 	appHandler := handlers.AppHandler{
-		DB: db,
+		DB:    db,
+		Store: store,
 	}
+
+	middlewareHandler := middlewares.MiddleWareHandler{}
 
 	// Get Handlers
 	app.Get("/", appHandler.HandleGetHome)
@@ -40,9 +58,15 @@ func main() {
 	app.Get("/contact", appHandler.HandleGetContact)
 	app.Get("/login", appHandler.HanldeGetLogin)
 	app.Get("/register", appHandler.HanldeGetRegister)
+	app.Get("/logout", appHandler.Logout)
 
 	//post handlers
 	app.Post("/register", appHandler.RegisterUser)
+	app.Post("/login", appHandler.LoginUser)
+
+	//dashboard
+	dashboard := app.Group("/dashboard", middlewareHandler.MustBeAuthenticated)
+	dashboard.Get("/dashboard", appHandler.HandleGetDashboard)
 
 	app.Listen(":3000")
 }

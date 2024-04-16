@@ -29,12 +29,12 @@
                 <div class="col-lg-6 col-xl-5">
                     <div class="account__form__wrapper">
                         <h3 class="title">Hello, Welcome Back</h3>
-                        <form class="form account__form">
+                        <form class="form account__form" action="/login" method="post">
                             <div class="form-group">
-                                <input type="email" class="form-control form--control" placeholder="Username Or Email">
+                                <input type="email" name="email" class="form-control form--control" placeholder="Username Or Email">
                             </div>
                             <div class="form-group">
-                                <input type="password" class="form-control form--control" placeholder="Password">
+                                <input type="password" name="password" class="form-control form--control" placeholder="Password">
                                 <span class="eye-icon"><i class="las la-eye"></i></span>
                             </div>
                             <div class=" d-flex flex-wrap align-items-center">
@@ -44,7 +44,7 @@
                                 </div>
                                 <a href="#" class="forgot-pass text--base">Forgot Password</a>
                             </div>
-                            <button class="btn cmn--btn mt-4">Sign In Account</button>
+                            <button class="btn cmn--btn mt-4" type="submit">Sign In Account</button>
                         </form>
                         <p class="mt-4">Or you can join with</p>
                         <ul class="social-links mt-2">
