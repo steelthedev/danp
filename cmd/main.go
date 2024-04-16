@@ -2,10 +2,12 @@ package main
 
 import (
 	"log/slog"
+	"os"
 
 	"github.com/gofiber/fiber/v2"
 	"github.com/gofiber/template/html/v2"
 	"github.com/joho/godotenv"
+	"github.com/steelthedev/danp/db"
 	"github.com/steelthedev/danp/handlers"
 )
 
@@ -14,6 +16,8 @@ func main() {
 	if err != nil {
 		slog.Info(err.Error())
 	}
+	dbUrl := string(os.Getenv("DB_URL"))
+	db := db.Init(dbUrl)
 
 	viewsEngine := html.New("./public", ".html")
 
@@ -25,7 +29,9 @@ func main() {
 
 	app.Static("/static", "./assets")
 
-	appHandler := handlers.AppHandler{}
+	appHandler := handlers.AppHandler{
+		DB: db,
+	}
 
 	// Get Handlers
 	app.Get("/", appHandler.HandleGetHome)
@@ -34,6 +40,9 @@ func main() {
 	app.Get("/contact", appHandler.HandleGetContact)
 	app.Get("/login", appHandler.HanldeGetLogin)
 	app.Get("/register", appHandler.HanldeGetRegister)
+
+	//post handlers
+	app.Post("/register", appHandler.RegisterUser)
 
 	app.Listen(":3000")
 }
