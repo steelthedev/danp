@@ -19,7 +19,7 @@ func main() {
 	dbUrl := string(os.Getenv("DB_URL"))
 	db := db.Init(dbUrl)
 
-	viewsEngine := html.New("./public", ".html")
+	viewsEngine := html.New("./views", ".html")
 
 	app := fiber.New(fiber.Config{
 		Views:             viewsEngine,
