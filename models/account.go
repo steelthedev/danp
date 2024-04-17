@@ -15,6 +15,7 @@ type User struct {
 	PhoneNumber int    `gorm:"column:phone_number"`
 	Password    string `gorm:"not null"`
 	Image       []byte `gorm:"type:bytea"`
+	Wallet      Wallet
 }
 
 func CheckUserExists(db *gorm.DB, email string) (*User, bool) {
@@ -31,4 +32,15 @@ func GetUserByID(db *gorm.DB, ID int64) (*User, error) {
 		return nil, errors.New("could not get user")
 	}
 	return &user, nil
+}
+
+func (u *User) BeforeCreate(db *gorm.DB) error {
+	// create user wallet
+	u.Wallet = Wallet{
+		UserId:            u.ID,
+		Balance:           0.00,
+		TotalEarning:      0.00,
+		PendingWithdrawal: 0.00,
+	}
+	return nil
 }

@@ -1,273 +1,282 @@
 
-    <!-- Banner Section Starts Here -->
-    <div class="inner-banner section-bg overflow-hidden">
-        <div class="container">
-            <div class="inner__banner__content text-center">
-                <h2 class="title">User Dashboard</h2>
-                <ul class="breadcums d-flex flex-wrap justify-content-center">
-                    <li><a href="index.html">Home</a>//</li>
-                    <li>Dashboard</li>
-                </ul>
-            </div>
-        </div>
-        <div class="shapes">
-            <img src="/static/images/banner/inner-bg.png" alt="banner" class="shape shape1">
-            <img src="/static/images/banner/inner-thumb.png" alt="banner" class="shape shape2 d-none d-lg-block">
-        </div>
-    </div>
-    <!-- Banner Section Ends Here -->
-
-
-    <!-- Dashboard Section Starts Here -->
-    <div class="dashbaord-section padding-top padding-bottom">
-        <div class="container">
-            <div class="row">
-                <div class="col-lg-4 col-xl-4 col-xxl-3 col-xl-4">
-                    <div class="sidebar dashboard__sidebar">
-                        <div class="dashboard-user text-center">
-                            <div class="thumb"><img src="/static/images/dashboard/cc1.png" alt="dashboard"></div>
-                            <div class="content mt-3">
-                                <h3 class="name">Albert Tpsi</h3>
-                                <p class="text-white"><a href="https://template.viserlab.com/cdn-cgi/l/email-protection" class="__cf_email__" data-cfemail="f4a69b96958680b49399959d98da979b99">[email&#160;protected]</a></p>
-                            </div>
-                        </div>
-                        <ul class="dashbard__tab tags">
-                            <li><a href="#" class="active">Overview</a></li>
-                            <li><a href="#">Max Deposit</a></li>
-                            <li><a href="#">Withdraw Fund</a></li>
-                            <li><a href="#">Deposit List</a></li>
-                            <li><a href="#">Deposit History</a></li>
-                            <li><a href="#">Earnings History</a></li>
-                            <li><a href="#">Referral Link</a></li>
-                            <li><a href="#">Account Settings</a></li>
-                            <li><a href="#">Security Settings</a></li>
-                            <li><a href="/logout">Sign Out</a></li>
-                        </ul>
-                        <button class="btn-close btn-close-white d-lg-none"></button>
-                    </div>
+      <div class="container-fluid main-content px-2 px-lg-4">
+        <div class="row my-2 g-3 g-lg-4">
+          <div class="col-md-6 col-xl-4 col-xxl-3">
+            <div class="price-box">
+              <div class="d-flex align-items-center justify-content-between">
+                <div>
+                  <p class="text-white mb-0">Bitcoin</p>
+                  <h4 class="fw-semibold text-white mb-0">$1200.00</h4>
                 </div>
-                <div class="col-lg-8 col-xl-8 col-xxl-9">
-                    <div class="dashboard__wrapper">
-                        <div class="dashboard__header">
-                            <div class="inner">
-                                <h3 class="title">User Panel</h3>
-                            </div>
-                            <div class="inner">
-                                <form class="search__form">
-                                    <div class="form-group">
-                                        <input type="text" class="form-control form--control" placeholder="Search Here...">
-                                        <button type="submit" class="btn"><i class="las la-search"></i></button>
-                                    </div>
-                                </form>
-                            </div>
-                            <div class="inner">
-                                <ul class="tabs d-flex flex-wrap align-items-center">
-                                    <li><a href="#"><i class="las la-envelope"></i></a></li>
-                                    <li><a href="#"><i class="las la-bell"></i><span class="badge badge--base badge--round">01</span> </a></li>
-                                    <li><div class="user-thumb"><img src="/static/images/dashboard/cc1.png" alt="dashboard"></div></li>
-                                </ul>
-                            </div>
-                        </div>
-                        <div class="row pt-5 gy-4">
-                            <div class="col-xl-6 col-xxl-4 col-lg-6 col-md-6">
-                                <div class="dashboard__card">
-                                    <div class="dashboard__card-icon">
-                                        <i class="las la-wallet"></i>
-                                    </div>
-                                    <div class="dashboard__card-content">
-                                        <p class="info">Total Balance</p>
-                                        <h3 class="title">587 USD</h3>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="col-xl-6 col-xxl-4 col-lg-6 col-md-6">
-                                <div class="dashboard__card">
-                                    <div class="dashboard__card-icon">
-                                        <i class="las la-money-bill-alt"></i>
-                                    </div>
-                                    <div class="dashboard__card-content">
-                                        <p class="info">Earning Total</p>
-                                        <h3 class="title">587 USD</h3>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="col-xl-6 col-xxl-4 col-lg-6 col-md-6">
-                                <div class="dashboard__card">
-                                    <div class="dashboard__card-icon">
-                                        <i class="las la-file-invoice-dollar"></i>
-                                    </div>
-                                    <div class="dashboard__card-content">
-                                        <p class="info">Pending Withdraw</p>
-                                        <h3 class="title">587 USD</h3>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="d-flex flex-wrap align-items-center justify-content-between mt-5 mb-4">
-                            <h3 class="title">Latest Deposits</h3>
-                            <select class="nice-select btn--round">
-                                <option>Last Month</option>
-                                <option>Last 3 Months</option>
-                                <option>Last 6 Months</option>
-                            </select>
-                        </div>
-                        <table class="table transection__table dashboard__table">
-                            <thead>
-                                <tr>
-                                    <th>User Name</th>
-                                    <th>Amount</th>
-                                    <th>Wallet</th>
-                                    <th>Date</th>
-                                    <th>Currency</th>
-                                </tr>
-                            </thead>
-                            <tbody>
-                                <tr>
-                                    <td data-label="User Name">
-                                        <div class="user d-flex flex-wrap align-items-center">
-                                            <div class="thumb">
-                                                <img src="/static/images/dashboard/item1.png" alt="dashboard">
-                                            </div>
-                                            <p class="name">{{ .User.Email }}</p>
-                                        </div>
-                                    </td>
-                                    <td data-label="Amount"><span class="amount">$1500</span></td>
-                                    <td data-label="Wallet"><span class="wallet">Payeer</span></td>
-                                    <td data-label="Date"><span class="date">25 Apr 2021</span></td>
-                                    <td data-label="Currency"><span class="currency">USD</span></td>
-                                </tr>
-                                <tr>
-                                    <td data-label="User Name">
-                                        <div class="user d-flex flex-wrap align-items-center">
-                                            <div class="thumb">
-                                                <img src="/static/images/dashboard/item2.png" alt="dashboard">
-                                            </div>
-                                            <p class="name">Munna Ahmed</p>
-                                        </div>
-                                    </td>
-                                    <td data-label="Amount"><span class="amount">$1500</span></td>
-                                    <td data-label="Wallet"><span class="wallet">Payeer</span></td>
-                                    <td data-label="Date"><span class="date">25 Jan 2021</span></td>
-                                    <td data-label="Currency"><span class="currency">BItcoin</span></td>
-                                </tr>
-                                <tr>
-                                    <td data-label="User Name">
-                                        <div class="user d-flex flex-wrap align-items-center">
-                                            <div class="thumb">
-                                                <img src="/static/images/dashboard/item3.png" alt="dashboard">
-                                            </div>
-                                            <p class="name">Rafuj Raihan</p>
-                                        </div>
-                                    </td>
-                                    <td data-label="Amount"><span class="amount">$1500</span></td>
-                                    <td data-label="Wallet"><span class="wallet">block.io</span></td>
-                                    <td data-label="Date"><span class="date">25 May 2021</span></td>
-                                    <td data-label="Currency"><span class="currency">NSU</span></td>
-                                </tr>
-                                <tr>
-                                    <td data-label="User Name">
-                                        <div class="user d-flex flex-wrap align-items-center">
-                                            <div class="thumb">
-                                                <img src="/static/images/dashboard/item4.png" alt="dashboard">
-                                            </div>
-                                            <p class="name">Robert Mahfuj</p>
-                                        </div>
-                                    </td>
-                                    <td data-label="Amount"><span class="amount">$1500</span></td>
-                                    <td data-label="Wallet"><span class="wallet">Bank Wire</span></td>
-                                    <td data-label="Date"><span class="date">25 Feb 2021</span></td>
-                                    <td data-label="Currency"><span class="currency">BIT</span></td>
-                                </tr>
-                                <tr>
-                                    <td data-label="User Name">
-                                        <div class="user d-flex flex-wrap align-items-center">
-                                            <div class="thumb">
-                                                <img src="/static/images/dashboard/item5.png" alt="dashboard">
-                                            </div>
-                                            <p class="name">Jibon Khan</p>
-                                        </div>
-                                    </td>
-                                    <td data-label="Amount"><span class="amount">$2500</span></td>
-                                    <td data-label="Wallet"><span class="wallet">Paypal</span></td>
-                                    <td data-label="Date"><span class="date">25 May 2021</span></td>
-                                    <td data-label="Currency"><span class="currency">USD</span></td>
-                                </tr>
-                            </tbody>
-                        </table>
-                        <div class="row pt-5 gy-4">
-                            <div class="col-xl-6 col-lg-6 col-md-6">
-                                <div class="dashboard__card style--two">
-                                    <div class="dashboard__card-icon">
-                                        <i class="las la-wallet"></i>
-                                    </div>
-                                    <div class="dashboard__card-content">
-                                        <p class="info">Total Balance</p>
-                                        <h3 class="title">587 USD</h3>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="col-xl-6 col-lg-6 col-md-6">
-                                <div class="dashboard__card style--two">
-                                    <div class="dashboard__card-icon">
-                                        <i class="las la-money-bill-alt"></i>
-                                    </div>
-                                    <div class="dashboard__card-content">
-                                        <p class="info">Earning Total</p>
-                                        <h3 class="title">587 USD</h3>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        <h3 class="title mt-5 mb-4">Top Investors</h3>
-                        <div class="row justify-content-center gy-4">
-                            <div class="col-xl-4 col-xxl-3 col-md-4 col-sm-6">
-                                <div class="investor__item style--two">
-                                    <div class="investor__item-thumb">
-                                        <img src="/static/images/investor/item1.png" alt="investor">
-                                    </div>
-                                    <div class="investor__item-content">
-                                        <h4 class="name">Robart Williams</h4>
-                                        <p class="invest-amount">Invest 250 USD</p>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="col-xl-4 col-xxl-3 col-md-4 col-sm-6">
-                                <div class="investor__item style--two">
-                                    <div class="investor__item-thumb">
-                                        <img src="/static/images/investor/item2.png" alt="investor">
-                                    </div>
-                                    <div class="investor__item-content">
-                                        <h4 class="name">Munna Ahmed</h4>
-                                        <p class="invest-amount">Invest 350 USD</p>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="col-xl-4 col-xxl-3 col-md-4 col-sm-6">
-                                <div class="investor__item style--two">
-                                    <div class="investor__item-thumb">
-                                        <img src="/static/images/investor/item3.png" alt="investor">
-                                    </div>
-                                    <div class="investor__item-content">
-                                        <h4 class="name">Maliha Mahtab</h4>
-                                        <p class="invest-amount">Invest 450 USD</p>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="col-xl-4 col-xxl-3 col-md-4 col-sm-6">
-                                <div class="investor__item style--two">
-                                    <div class="investor__item-thumb">
-                                        <img src="/static/images/investor/item4.png" alt="investor">
-                                    </div>
-                                    <div class="investor__item-content">
-                                        <h4 class="name">Munna Ahmed</h4>
-                                        <p class="invest-amount">Invest 550 USD</p>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
+                <img src="assets/img/crypto/bitcoin.png" alt="">
+              </div>
+              <div class="chart">
+                <canvas id="chart_2"></canvas>
+              </div>
             </div>
+          </div>
+          <div class="col-md-6 col-xl-4 col-xxl-3">
+            <div class="price-box">
+              <div class="d-flex align-items-center justify-content-between">
+                <div>
+                  <p class="text-white mb-0">Ethereum</p>
+                  <h4 class="fw-semibold text-white mb-0">$100.00</h4>
+                </div>
+                <img src="assets/img/crypto/etherium.png" alt="">
+              </div>
+              <div class="chart">
+                <canvas id="chart_3"></canvas>
+              </div>
+            </div>
+          </div>
+          <div class="col-md-6 col-xl-4 col-xxl-3">
+            <div class="price-box">
+              <div class="d-flex align-items-center justify-content-between">
+                <div>
+                  <p class="text-white mb-0">Dogecoin</p>
+                  <h4 class="fw-semibold text-white mb-0">$2500.00</h4>
+                </div>
+                <img src="assets/img/crypto/dogecoin.png" alt="">
+              </div>
+              <div class="chart">
+                <canvas id="chart_4"></canvas>
+              </div>
+            </div>
+          </div>
+          <div class="col-md-6 col-xl-4 col-xxl-3">
+            <div class="price-box">
+              <div class="d-flex align-items-center justify-content-between">
+                <div>
+                  <p class="text-white mb-0">Binance</p>
+                  <h4 class="fw-semibold text-white mb-0">$3200.00</h4>
+                </div>
+                <img src="assets/img/crypto/binance.png" alt="">
+              </div>
+              <div class="chart">
+                <canvas id="chart_5"></canvas>
+              </div>
+            </div>
+          </div>
+
         </div>
-    </div>
-    <!-- Dashboard Section Ends Here -->
+
+        <!-- Main Chart Area -->
+        <div class="row my-2 g-3 gx-lg-4">
+          <div class="col-xl-7 col-xxl-9">
+            <div class="mainchart px-3 px-md-4 py-3 py-lg-4">
+              <div class="d-flex w-100 flex-wrap justify-content-between pb-4 bottom-border">
+                <h4 class="mb-0">Monthly Overall Growth</h4>
+                <div class="d-flex align-items-center gap-3">
+                  <button class="outline-btn">Week</button>
+                  <button class="outline-btn">Month</button>
+                  <button class="outline-btn">Year</button>
+                </div>
+              </div>
+              <div class="chart-container">
+                <canvas id="chart_1"></canvas>
+              </div>
+            </div>
+          </div>
+          <div class="col-xl-5 col-xxl-3">
+            <div class="doughnut">
+              <div id="donut_wrapper" class="position-relative">
+                <div id="donutchart"></div>
+              </div>
+              <p class="large text-center mt-3">Total Balance</p>
+              <h3 class="text-white text-center">0.3475948</h3>
+              <p class="primary text-center">11,032.24 USD</p>
+              <div class="d-flex justify-content-center">
+                <button class="primary-btn">Withdraw</button>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Tables -->
+        <div class="row my-2 g-3 gx-lg-4 pb-3">
+          <div class="col-xl-7 col-xxl-9">
+            <div class="mainchart px-3 px-md-4 py-3 py-lg-4 ">
+              <div>
+                <h5 class="mb-0">Active Overall Growth</h5>
+              </div>
+              <div class="recent-contact pb-2 pt-3">
+                <table>
+                  <thead>
+                    <tr class="border-b2">
+                      <th class="fw-bold">Type</th>
+                      <th class="fw-bold">Asset</th>
+                      <th class="fw-bold">Date</th>
+                      <th class="fw-bold">IP Address</th>
+                      <th class="fw-bold">Status List</th>
+                      <th class="fw-bold">Amount</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    <tr class="border-b2">
+                      <td>Exchange</td>
+                      <td class="d-flex align-items-center gap-2">
+                        <img src="assets/img/crypto/bitcoin.png" alt="">
+                        Bitcoin
+                      </td>
+                      <td>Apr 14, 2023</td>
+                      <td>140.91.94.219</td>
+                      <td><span class="green-tag">Success</span></td>
+                      <td>11,250 BTC</td>
+                    </tr>
+                    <tr class="border-b2">
+                      <td>Exchange</td>
+                      <td class="d-flex align-items-center gap-2">
+                        <img src="assets/img/crypto/binance.png" alt="">
+                        Binance
+                      </td>
+                      <td>Apr 14, 2023</td>
+                      <td>140.91.94.219</td>
+                      <td><span class="red-tag">Unpaid</span></td>
+                      <td>11,250 BTC</td>
+                    </tr>
+                    <tr class="border-b2">
+                      <td>Exchange</td>
+                      <td class="d-flex align-items-center gap-2">
+                        <img src="assets/img/crypto/dash.png" alt="">
+                        Dashcoin
+                      </td>
+                      <td>Apr 14, 2023</td>
+                      <td>140.91.94.219</td>
+                      <td><span class="green-tag">Success</span></td>
+                      <td>11,250 BTC</td>
+                    </tr>
+                    <tr class="border-b2">
+                      <td>Exchange</td>
+                      <td class="d-flex align-items-center gap-2">
+                        <img src="assets/img/crypto/dogecoin.png" alt="">
+                        Dogecoin
+                      </td>
+                      <td>Apr 14, 2023</td>
+                      <td>140.91.94.219</td>
+                      <td><span class="red-tag">Unpaid</span></td>
+                      <td>11,250 BTC</td>
+                    </tr>
+                    <tr class="border-b2">
+                      <td>Exchange</td>
+                      <td class="d-flex align-items-center gap-2">
+                        <img src="assets/img/crypto/etherium.png" alt="">
+                        Ethereum
+                      </td>
+                      <td>Apr 14, 2023</td>
+                      <td>140.91.94.219</td>
+                      <td><span class="red-tag">Pending</span></td>
+                      <td>11,250 BTC</td>
+                    </tr>
+                    <tr class="border-b2">
+                      <td>Exchange</td>
+                      <td class="d-flex align-items-center gap-2">
+                        <img src="assets/img/crypto/tether.png" alt="">
+                        Tether
+                      </td>
+                      <td>Apr 14, 2023</td>
+                      <td>140.91.94.219</td>
+                      <td><span class="red-tag">Pending</span></td>
+                      <td>11,250 BTC</td>
+                    </tr>
+                  </tbody>
+                </table>
+              </div>
+            </div>
+          </div>
+          <div class="col-xl-5 col-xxl-3">
+            <div class="doughnut">
+              <h5 class="text-whit mb-3">Recent Transaction</h5>
+              <div class="coins-list">
+                <div class="coin d-flex justify-content-between align-items-center border-b2">
+                  <div class="d-flex gap-2 align-items-center">
+                    <div>
+                      <img src="assets/img/crypto/bitcoin.png" alt="">
+                    </div>
+                    <div class="d-flex flex-column">
+                      <span class="text-white">Bitcon</span>
+                      <span class="medium">Today, 3.50 PM</span>
+                    </div>
+                  </div>
+                  <h5 class="text-white">$47,515</h5>
+                </div>
+                <div class="coin d-flex justify-content-between align-items-center border-b2">
+                  <div class="d-flex gap-2 align-items-center">
+                    <div>
+                      <img src="assets/img/crypto/tether.png" alt="">
+                    </div>
+                    <div class="d-flex flex-column">
+                      <span class="text-white">Litcon</span>
+                      <span class="medium">Today, 3.50 PM</span>
+                    </div>
+                  </div>
+                  <h5 class="text-white">$37,515</h5>
+                </div>
+                <div class="coin d-flex justify-content-between align-items-center border-b2">
+                  <div class="d-flex gap-2 align-items-center">
+                    <div>
+                      <img src="assets/img/crypto/binance.png" alt="">
+                    </div>
+                    <div class="d-flex flex-column">
+                      <span class="text-white">Binance</span>
+                      <span class="medium">Today, 3.50 PM</span>
+                    </div>
+                  </div>
+                  <h5 class="text-white">$27,515</h5>
+                </div>
+                <div class="coin d-flex justify-content-between align-items-center border-b2">
+                  <div class="d-flex gap-2 align-items-center">
+                    <div>
+                      <img src="assets/img/crypto/etherium.png" alt="">
+                    </div>
+                    <div class="d-flex flex-column">
+                      <span class="text-white">Ethereum</span>
+                      <span class="medium">Today, 3.50 PM</span>
+                    </div>
+                  </div>
+                  <h5 class="text-white">$23,515</h5>
+                </div>
+                <div class="coin d-flex justify-content-between align-items-center border-b2">
+                  <div class="d-flex gap-2 align-items-center">
+                    <div>
+                      <img src="assets/img/crypto/dogecoin.png" alt="">
+                    </div>
+                    <div class="d-flex flex-column">
+                      <span class="text-white">Dogecoin</span>
+                      <span class="medium">Today, 3.50 PM</span>
+                    </div>
+                  </div>
+                  <h5 class="text-white">$22,515</h5>
+                </div>
+                <div class="coin d-flex justify-content-between align-items-center border-b2">
+                  <div class="d-flex gap-2 align-items-center">
+                    <div>
+                      <img src="assets/img/crypto/dash.png" alt="">
+                    </div>
+                    <div class="d-flex flex-column">
+                      <span class="text-white">Dashcoin</span>
+                      <span class="medium">Today, 3.50 PM</span>
+                    </div>
+                  </div>
+                  <h5 class="text-white">$21,515</h5>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="row py-2 g-3 g-lg-4 top-border footer">
+          <div class="col-lg-6">
+            <span class="text-center text-lg-start d-block w-100">Copyright © 2023. All Rights Reserved By <a href="#"
+                class="primary">CryptDash</a></span>
+          </div>
+          <div class="col-lg-6">
+            <ul
+              class="d-flex gap-2 gap-xl-4 p-0 align-items-center flex-wrap justify-content-center justify-content-lg-end">
+              <li><a href="#">Help Center</a></li>
+              <li><a href="#">Privacy</a></li>
+              <li><a href="#">Terms of Service</a></li>
+            </ul>
+          </div>
+        </div>
+      </div>
+   

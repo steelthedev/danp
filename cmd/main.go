@@ -49,8 +49,11 @@ func main() {
 		Store: store,
 	}
 
-	middlewareHandler := middlewares.MiddleWareHandler{}
+	middlewareHandler := middlewares.MiddleWareHandler{
+		AppHandler: &appHandler,
+	}
 
+	app.Use(middlewares.WithFlash)
 	// Get Handlers
 	app.Get("/", appHandler.HandleGetHome)
 	app.Get("/about", appHandler.HandleGetAbout)
@@ -66,7 +69,8 @@ func main() {
 
 	//dashboard
 	dashboard := app.Group("/dashboard", middlewareHandler.MustBeAuthenticated)
-	dashboard.Get("/dashboard", appHandler.HandleGetDashboard)
+	dashboard.Get("/", appHandler.HandleGetDashboard)
+	dashboard.Get("/settings", appHandler.HandleGetSettings)
 
 	app.Listen(":3000")
 }

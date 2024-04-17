@@ -92,6 +92,9 @@ func (h AppHandler) GetAuthenticatedUser(ctx *fiber.Ctx) (*models.User, error) {
 		return nil, err
 	}
 	userID := session.Get("userID")
+	if userID == nil {
+		return nil, err
+	}
 	user, err := models.GetUserByID(h.DB, userID.(int64))
 	if err != nil {
 		return nil, err
