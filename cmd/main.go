@@ -72,7 +72,8 @@ func main() {
 	dashboard.Get("/", appHandler.HandleGetDashboard)
 	dashboard.Get("/settings", appHandler.HandleGetSettings)
 	dashboard.Post("/settings/update-profile", appHandler.EditUser)
-	dashboard.Get("/wallet", appHandler.HandleGetInvestment)
+	dashboard.Get("/wallet", appHandler.HandleGetWallet)
+	dashboard.Get("/investments", appHandler.HandleGetInvestment)
 
 	app.Listen(":3000")
 }

@@ -3,6 +3,7 @@ package handlers
 import (
 	"github.com/gofiber/fiber/v2"
 	"github.com/steelthedev/danp/data"
+	"github.com/steelthedev/danp/models"
 	"github.com/sujit-baniya/flash"
 )
 
@@ -59,7 +60,7 @@ func (h AppHandler) EditUser(ctx *fiber.Ctx) error {
 
 }
 
-func (h AppHandler) HandleGetInvestment(ctx *fiber.Ctx) error {
+func (h AppHandler) HandleGetWallet(ctx *fiber.Ctx) error {
 	user, err := h.GetAuthenticatedUser(ctx)
 	if err != nil {
 		return err
@@ -68,4 +69,15 @@ func (h AppHandler) HandleGetInvestment(ctx *fiber.Ctx) error {
 		"User": user,
 	}
 	return ctx.Render("dashboard/wallet", context, "layout/base")
+}
+
+func (h AppHandler) HandleGetInvestment(ctx *fiber.Ctx) error {
+	var investments []models.Investment
+	if result := h.DB.Find(&investments); result.Error != nil {
+		return flash.WithWarn(ctx, fiber.Map{"Error": "An error occured"}).Redirect("/dashboard/investments")
+	}
+	context := fiber.Map{
+		"Investments": investments,
+	}
+	return ctx.Render("dashboard/investments", context, "layout/base")
 }
