@@ -71,6 +71,8 @@ func main() {
 	dashboard := app.Group("/dashboard", middlewareHandler.MustBeAuthenticated)
 	dashboard.Get("/", appHandler.HandleGetDashboard)
 	dashboard.Get("/settings", appHandler.HandleGetSettings)
+	dashboard.Post("/settings/update-profile", appHandler.EditUser)
+	dashboard.Get("/wallet", appHandler.HandleGetInvestment)
 
 	app.Listen(":3000")
 }

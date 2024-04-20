@@ -12,7 +12,7 @@
                   </span>
                 </div>
               </div>
-              <h4 class="text-white fw-semibold text-center mt-3 mb-1">Kim Griffith</h4>
+              <h4 class="text-white fw-semibold text-center mt-3 mb-1">{{ .User.FirstName}} {{.User.LastName}}</h4>
               <span class="pb-3 d-block d-border text-center">Amet minim Developer</span>
               <h6 class="mt-3">BIO</h6>
               <p class="d-border pb-3">Fusce quis tempor augue, congue mollis lorem. Donec et tristique massa, a
@@ -45,10 +45,7 @@
                   <button class="nav-link" id="pills-password-tab" data-bs-toggle="pill"
                     data-bs-target="#pills-password" type="button" role="tab">Change Password</button>
                 </li>
-                <li class="nav-item" role="presentation">
-                  <button class="nav-link" id="pills-two-factor-tab" data-bs-toggle="pill"
-                    data-bs-target="#pills-two-factor" type="button" role="tab">Two-factor</button>
-                </li>
+              
                 <li class="nav-item" role="presentation">
                   <button class="nav-link" id="pills-login-tab" data-bs-toggle="pill" data-bs-target="#pills-login"
                     type="button" role="tab">Login Device History</button>
@@ -57,75 +54,39 @@
 
               <div class="tab-content pt-2" id="pills-tabContent">
                 <div class="tab-pane fade show active" id="pills-profile" role="tabpanel" tabindex="0">
-                  <form>
+                  <form action="/dashboard/settings/update-profile" method="post">
                     <div class="row">
                       <div class="col-md-6">
                         <label class="fw-semibold mb-2 mt-3" for="fname">First Name</label>
-                        <input type="text" id="fname" placeholder="First Name........" class="form-control">
+                        <input type="text" id="fname" name="FirstName"  value={{.User.FirstName}} class="form-control">
                       </div>
                       <div class="col-md-6">
                         <label class="fw-semibold mb-2 mt-3" for="lname">last Name</label>
-                        <input type="text" id="lname" placeholder="Last Name........" class="form-control">
+                        <input type="text" id="lname" name="LastName" value={{.User.LastName}} class="form-control">
                       </div>
-                      <div class="col-md-6">
+                      <!-- <div class="col-md-6">
                         <label class="fw-semibold mb-2 mt-3" for="email">Email Address</label>
-                        <input type="text" id="email" placeholder="Email Address........" class="form-control">
-                      </div>
+                        <input type="text" id="email" name="Email" value={{.User.Email}} class="form-control">
+                      </div> -->
                       <div class="col-md-6">
                         <label class="fw-semibold mb-2 mt-3" for="phone">Phone Number</label>
-                        <input type="text" id="phone" placeholder="Phone Number........" class="form-control">
+                        <input type="text" id="phone" name="PhoneNumber" value={{.User.PhoneNumber}}   class="form-control">
                       </div>
                       <div class="col-md-6">
                         <label class="fw-semibold mb-2 mt-3" for="date">Joining Date</label>
-                        <input type="date" id="date" placeholder="Joining Date........" class="form-control">
+                        <input type="date" id="date" value={{ .User.CreatedAt }} class="form-control">
+                        {{ .User.CreatedAt }}
                       </div>
                       <div class="col-md-6">
                         <label class="fw-semibold mb-2 mt-3" for="city">City</label>
-                        <input type="text" id="city" placeholder="City ........" class="form-control">
+                        <input type="text" id="city" name="City"  value={{ .User.City }} class="form-control">
                       </div>
                       <div class="col-md-6">
                         <label class="fw-semibold mb-2 mt-3" for="country">Country </label>
-                        <input type="text" id="country" placeholder="Country ........" class="form-control">
+                        <input type="text" id="country" name="Country" value={{ .User.Country }} class="form-control">
                       </div>
-                      <div class="col-md-6">
-                        <label class="fw-semibold mb-2 mt-3" for="zip">Zip Code</label>
-                        <input type="text" id="zip" placeholder="Zip Code........" class="form-control">
-                      </div>
-                      <div class="col-md-6">
-                        <label class="fw-semibold mb-2 mt-3">Deposit Assets</label>
-                        <select class="form-select">
-                          <option value="0">Disabled</option>
-                          <option value="2500">$2500</option>
-                          <option value="3000">$3000</option>
-                        </select>
-                      </div>
-                      <div class="col-md-6">
-                        <label class="fw-semibold mb-2 mt-3">Withdraw Assets</label>
-                        <select class="form-select">
-                          <option value="0">Enabled 111,000 USD/Day</option>
-                          <option value="2500">$2500</option>
-                          <option value="3000">$3000</option>
-                        </select>
-                      </div>
-                      <div class="col-12">
-                        <label class="fw-semibold  mt-3">Description</label>
-                        <textarea class="form-control mt-3" placeholder="Description......." cols="30"
-                          rows="6"></textarea>
-                      </div>
-                      <div class="col-12">
-                        <label class="fw-semibold mb-2 mt-3">Deposit Assets</label>
-                        <div class="deposit-assets">
-                          <input type="checkbox" id="promotion">
-                          <label for="promotion" class="medium mb-2">Promotions</label> <br>
-                          <input type="checkbox" id="exchange">
-                          <label for="exchange" class="medium mb-2">Exchange</label> <br>
-                          <input type="checkbox" id="withdrawls">
-                          <label for="withdrawls" class="medium">Withdrawls</label> <br>
-                        </div>
-                        <div class="mt-4 d-flex gap-3">
-                          <button type="submit" class="primary-btn-lg">Update</button>
-                          <button type="reset" class="secondary-btn-lg">Cancel</button>
-                        </div>
+                      <div class="col-md-8 d-flex align-items-end">
+                        <button class="primary-btn-lg mt-3" type="submit">Update Profile</button>
                       </div>
                     </div>
                   </form>
@@ -255,21 +216,3 @@
             </div>
           </div>
         </div>
-
-        <!-- Footer -->
-        <div class="row py-2 g-3 g-lg-4 top-border footer">
-          <div class="col-lg-6">
-            <span class="text-center text-lg-start d-block w-100">Copyright © 2023. All Rights Reserved By
-              <a href="#" class="primary">CryptDash</a></span>
-          </div>
-          <div class="col-lg-6">
-            <ul
-              class="d-flex gap-2 gap-xl-4 p-0 align-items-center flex-wrap justify-content-center justify-content-lg-end">
-              <li><a href="#">Help Center</a></li>
-              <li><a href="#">Privacy</a></li>
-              <li><a href="#">Terms of Service</a></li>
-            </ul>
-          </div>
-        </div>
-      </div>
-    

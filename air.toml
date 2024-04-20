@@ -1,0 +1,6 @@
+[build]
+bin = "app"
+cmd = "cd cmd && go build -o ../app"
+delay = 1000
+exclude_dir = ["assets"]
+include_ext = ["go", "tpl","html"]

@@ -16,6 +16,8 @@ type User struct {
 	Password    string `gorm:"not null"`
 	Image       []byte `gorm:"type:bytea"`
 	Wallet      Wallet
+	Country     string `gorm:"column:country"`
+	City        string `gorm:"column:city"`
 }
 
 func CheckUserExists(db *gorm.DB, email string) (*User, bool) {
