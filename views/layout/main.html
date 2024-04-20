@@ -84,11 +84,18 @@
                             <a href="/contact">Contact</a>
                         </li>
     
-    
+                        {{ if .isAuthenticated }}
+                        <div class="button__wrapper d-none d-lg-block">
+                            <a href="/logout" class="cmn--btn">Logout</a>
+                        </div>
+                        <div class="button__wrapper d-none d-lg-block">
+                            <a href="/register" class="cmn--btn">Register</a>
+                            <a href="/login" class="cmn--btn">Login</a>
+                        </div>
+                        {{ else }}
                         <li class="p-0 d-lg-none mt-3 mt-lg-0">
                             <div class="button__wrapper">
-                                <a href="/register" class="cmn--btn">Register</a>
-                                <a href="/login" class="cmn--btn">Login</a>
+                                <a href="/logout" class="cmn--btn">Logout</a>
                             </div>
                         </li>
                     </ul>   <!-- Menu End -->
@@ -98,6 +105,8 @@
                         <a href="/login" class="cmn--btn">Login</a>
                     </div>
                     
+
+                    {{ end }}
     
                     <div class="header-trigger-wrapper d-flex d-lg-none align-items-center">
                         <div class="mobile-nav-right d-flex align-items-center"></div>

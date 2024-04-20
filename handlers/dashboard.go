@@ -81,3 +81,17 @@ func (h AppHandler) HandleGetInvestment(ctx *fiber.Ctx) error {
 	}
 	return ctx.Render("dashboard/investments", context, "layout/base")
 }
+
+func (h AppHandler) HandleGetAddInvestment(ctx *fiber.Ctx) error {
+
+	context := fiber.Map{}
+	return ctx.Render("dashboard/add-investment", context, "layout/base")
+}
+
+func (h AppHandler) AddInvestment(ctx *fiber.Ctx) error {
+	var params data.Investment
+
+	if err := ctx.BodyParser(&params); err != nil {
+		return flash.WithError(ctx, fiber.Map{"Error": "Invalide body request"}).Redirect("/dashboard/add-investments")
+	}
+}

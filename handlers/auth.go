@@ -78,9 +78,9 @@ func (h AppHandler) LoginUser(ctx *fiber.Ctx) error {
 		fmt.Println("Could not get session")
 	}
 	sesssion.Set("userID", user.ID)
-	sesssion.Set("isAuthenticated", true)
 	sesssion.SetExpiry(time.Second * 40000000)
 	sesssion.Save()
+	ctx.Locals("isAuthenticated", true)
 
 	return ctx.Redirect("/dashboard")
 
