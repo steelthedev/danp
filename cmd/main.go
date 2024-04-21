@@ -75,6 +75,7 @@ func main() {
 	dashboard.Get("/wallet", appHandler.HandleGetWallet)
 	dashboard.Get("/investments", appHandler.HandleGetInvestment)
 	dashboard.Get("/add-investments", appHandler.HandleGetAddInvestment)
+	dashboard.Post("/add-investment", appHandler.AddInvestment)
 
 	app.Listen(":3000")
 }

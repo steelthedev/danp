@@ -8,6 +8,8 @@ import (
 
 type Investment struct {
 	gorm.Model
+	ID                 int64 `gorm:"primaryKey;autoIncrement"`
+	UserId             int64
 	Title              string  `gorm:"column:title"`
 	Price              float64 `gorm:"column:price"`
 	PercentageIncrease float64 `gorm:"column:percentage_increase"`
@@ -25,4 +27,10 @@ func (h Investment) CalcRoi() float64 {
 	finalAmount := h.CalcFinalAmount()
 	roi := ((finalAmount - h.Price) / h.Price) * 100
 	return roi
+}
+
+func (h *Investment) BeforeCreate(db *gorm.DB) error {
+	h.Roi = h.CalcRoi()
+	h.FinalAmount = h.CalcFinalAmount()
+	return nil
 }

@@ -5,19 +5,19 @@
               
                 <div class="col-md-12">
                     <div class="form-wrapper">
-                        <form>
+                        <form action="/dashboard/add-investment" method="post">
                             <h4 class="text-center text-white">Add New Investment</h4>
                            
                            
                             <label class="fw-semibold mb-2 mt-3" for="username">Title</label>
                             <input type="text" id="username" name="Title" placeholder="Title" class="form-control py-2">
                             <label class="fw-semibold mb-2 mt-3" for="password">Price</label>
-                            <input type="email" id="password" name="Price" placeholder="Price" class="form-control py-2">
+                            <input type="text"  name="Price" placeholder="Price" class="form-control py-2">
                             <label class="fw-semibold mb-2 mt-3" for="password">Referral Bonus</label>
-                            <input type="email" id="password" name="ReferralBonus" placeholder="Referral Bonus" class="form-control py-2">
+                            <input type="text"  name="ReferralBonus" placeholder="Referral Bonus" class="form-control py-2">
                            
                             <label class="fw-semibold mb-2 mt-3" for="password">Percentage Increase</label>
-                            <input type="password" id="password" name="PercentageIncrease" placeholder="Password ........"
+                            <input type="text"  name="PercentageIncrease" placeholder="20 (for 20%)"
                                 class="form-control py-2">
                             <label class="fw-semibold mb-2 mt-3" for="password">Duration</label>
                             <input type="password" id="password" name="Duration" placeholder="20 (20 days)"
