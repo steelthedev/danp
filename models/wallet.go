@@ -4,8 +4,7 @@ import "gorm.io/gorm"
 
 type Wallet struct {
 	gorm.Model
-	ID     int64 `gorm:"primaryKey;autoIncrement"`
-	UserId int64
+	UserId uint
 	// User              User `gorm:"constraint:OnUpdate:CASCADE,OnDelete:SET NULL"`
 	Balance           float64
 	TotalEarning      float64

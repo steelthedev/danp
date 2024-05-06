@@ -13,7 +13,6 @@ type EditUser struct {
 	FirstName   string
 	LastName    string
 	PhoneNumber int
-	Image       []byte
 	Country     string
 	City        string
 }

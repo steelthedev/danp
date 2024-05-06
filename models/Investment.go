@@ -8,8 +8,7 @@ import (
 
 type Investment struct {
 	gorm.Model
-	ID                 int64 `gorm:"primaryKey;autoIncrement"`
-	UserId             int64
+	UserId             uint
 	Title              string  `gorm:"column:title"`
 	Price              float64 `gorm:"column:price"`
 	PercentageIncrease float64 `gorm:"column:percentage_increase"`

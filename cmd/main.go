@@ -31,7 +31,7 @@ func main() {
 	})
 
 	app.Static("/static", "./assets")
-
+	app.Static("/uploads", "./uploads")
 	// handle sessions
 	storage := postgres.New(
 		postgres.Config{
@@ -76,6 +76,7 @@ func main() {
 	dashboard.Get("/investments", appHandler.HandleGetInvestment)
 	dashboard.Get("/add-investments", appHandler.HandleGetAddInvestment)
 	dashboard.Post("/add-investment", appHandler.AddInvestment)
+	dashboard.Post("/upload-profile-picture", appHandler.UpdatePicture)
 
 	app.Listen(":3000")
 }

@@ -8,13 +8,12 @@ import (
 
 type User struct {
 	gorm.Model
-	ID          int64  `gorm:"primaryKey;autoIncrement"`
 	Email       string `gorm:"unique;not null"`
 	FirstName   string `gorm:"column:first_name"`
 	LastName    string `gorm:"column:last_name"`
 	PhoneNumber int    `gorm:"column:phone_number"`
 	Password    string `gorm:"not null"`
-	Image       []byte `gorm:"type:bytea"`
+	Image       string `gorm:"column:image"`
 	Wallet      Wallet
 	Country     string `gorm:"column:country"`
 	City        string `gorm:"column:city"`
@@ -28,7 +27,7 @@ func CheckUserExists(db *gorm.DB, email string) (*User, bool) {
 	return nil, false
 }
 
-func GetUserByID(db *gorm.DB, ID int64) (*User, error) {
+func GetUserByID(db *gorm.DB, ID uint) (*User, error) {
 	var user User
 	if result := db.Where("ID=?", ID).First(&user); result.Error != nil {
 		return nil, errors.New("could not get user")

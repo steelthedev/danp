@@ -9,9 +9,7 @@ const (
 
 type Transaction struct {
 	gorm.Model
-
-	ID     int64 `gorm:"primaryKey;autoIncrement"`
-	UserId int64
+	UserId uint
 	Amount float64 `gorm:"column:amount"`
 	Type   string  `gorm:"column:type"`
 	Status string  `gorm:"column:status"`

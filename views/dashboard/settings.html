@@ -4,20 +4,34 @@
         <div class="row my-2 g-3 g-lg-4 pb-3 settings-inner">
           <div class="col-sm-6 col-lg-5 col-xl-4 col-xxl-3">
             <div class="profile">
-              <div class="profile-img">
-                <img src="/static/base/img/profile.png" alt="">
-                <div class="add-photo">
+              <div class="profile-im text-center">
+                <form action="/dashboard/upload-profile-picture" method="post" enctype="multipart/form-data">
+
+                  {{ if .User.Image }}
+                <img src="/uploads/{{ .User.Image }}" alt="">
+                {{ else }}
+                  <img src="/static/base/img/profile.png" alt="">
+                {{ end }}
+                <!-- <div class="add-photo">
                   <span class="material-symbols-outlined primary">
                     add_a_photo
                   </span>
+                </div> -->
+                <div class="upload-photo mt-2  mb-2">
+                  <div class="row justify-content-center">
+                    <div class="col-10 text-center">
+                      <input type="file" class="form-control text" name="image">
+                    </div>
+                   
+                  </div>
+                  
+                  <button class="btn primary-btn-lg mt-2" type="submit">Update Picture</button>
                 </div>
+              </form>
               </div>
               <h4 class="text-white fw-semibold text-center mt-3 mb-1">{{ .User.FirstName}} {{.User.LastName}}</h4>
-              <span class="pb-3 d-block d-border text-center">Amet minim Developer</span>
-              <h6 class="mt-3">BIO</h6>
-              <p class="d-border pb-3">Fusce quis tempor augue, congue mollis lorem. Donec et tristique massa, a
-                consectetur risus</p>
-              <h6 class="fw-semibold">Social media</h6>
+<!--           
+        
               <div class="social-icons pt-1">
                 <a href="#">
                   <i class="ri-facebook-fill"></i>
@@ -31,7 +45,7 @@
                 <a href="#">
                   <i class="ri-linkedin-fill"></i>
                 </a>
-              </div>
+              </div> -->
             </div>
           </div>
           <div class="col-sm-6 col-lg-7 col-xl-8 col-xxl-9">
@@ -56,6 +70,9 @@
                 <div class="tab-pane fade show active" id="pills-profile" role="tabpanel" tabindex="0">
                   <form action="/dashboard/settings/update-profile" method="post">
                     <div class="row">
+                      {{if .flash.message }}
+                      <p class="text-danger"> {{ .flash.message }} </p>
+                      {{ end }}
                       <div class="col-md-6">
                         <label class="fw-semibold mb-2 mt-3" for="fname">First Name</label>
                         <input type="text" id="fname" name="FirstName"  value={{.User.FirstName}} class="form-control">

@@ -1,6 +1,8 @@
 package handlers
 
 import (
+	"log/slog"
+
 	"github.com/gofiber/fiber/v2"
 	"github.com/steelthedev/danp/data"
 	"github.com/steelthedev/danp/models"
@@ -34,19 +36,13 @@ func (h AppHandler) EditUser(ctx *fiber.Ctx) error {
 	var params data.EditUser
 
 	if err := ctx.BodyParser(&params); err != nil {
-		return flash.WithError(ctx, fiber.Map{"message": "Invalid Body Request"}).Redirect("dashboard/settings")
-	}
-
-	err := params.CheckUserWithMailExists(ctx, h.DB)
-	if err != nil {
-		return flash.WithWarn(ctx, fiber.Map{"message": err}).Redirect("/dashboard/settings")
+		return flash.WithError(ctx, fiber.Map{"message": "Invalid Body Request"}).Redirect("/dashboard/settings")
 	}
 
 	user, err := h.GetAuthenticatedUser(ctx)
 	if err != nil {
 		return err
 	}
-	user.Email = params.Email
 	user.FirstName = params.FirstName
 	user.LastName = params.LastName
 	user.Country = params.Country
@@ -54,6 +50,7 @@ func (h AppHandler) EditUser(ctx *fiber.Ctx) error {
 	user.PhoneNumber = params.PhoneNumber
 
 	if result := h.DB.Save(&user); result.Error != nil {
+		slog.Info("Error updating user details: %v", result.Error)
 		return flash.WithWarn(ctx, fiber.Map{"message": "Could not update user on DB"}).RedirectBack("/dashboard/settings")
 	}
 	return flash.WithSuccess(ctx, fiber.Map{"Success": "Updates made successfully"}).Redirect("/dashboard/settings")
@@ -106,4 +103,27 @@ func (h AppHandler) AddInvestment(ctx *fiber.Ctx) error {
 		return flash.WithError(ctx, fiber.Map{"message": "Could not save investment to db"}).Redirect("/dashboard/add-investment")
 	}
 	return flash.WithSuccess(ctx, fiber.Map{"message": "Successful"}).Redirect("/dashboard/investments")
+}
+
+func (h AppHandler) UpdatePicture(ctx *fiber.Ctx) error {
+
+	image, err := ctx.FormFile("image")
+	if err != nil {
+		return flash.WithError(ctx, fiber.Map{"message": "Invalid Image"}).Redirect("/dashboard/settings")
+	}
+	err = ctx.SaveFile(image, "./uploads/"+image.Filename)
+	if err != nil {
+		return flash.WithWarn(ctx, fiber.Map{"message": "An error occured"}).Redirect("/dashboard/settings")
+	}
+
+	user, err := h.GetAuthenticatedUser(ctx)
+	if err != nil {
+		return err
+	}
+	user.Image = image.Filename
+	if result := h.DB.Save(&user); result.Error != nil {
+		return flash.WithError(ctx, fiber.Map{"message": "An error occured"}).Redirect("/dashboard/settings")
+	}
+	return flash.WithSuccess(ctx, fiber.Map{"message": "Updated successfully"}).Redirect("/dashboard/settings")
+
 }
